@@ -1,4 +1,5 @@
-//singleton -->only forms when we develop object from constructor not from literals
+//singleton -->only forms when we develop object from constructor not from literals--->A singleton is a function or class which can have only one instance.
+
   //By using constructor
   Object.create //---> discussed in next lecture
  // object literals ---> way of declaring object
