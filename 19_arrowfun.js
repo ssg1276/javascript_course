@@ -36,7 +36,7 @@ const chai = function () {
 
  //ARROW FUNCTIONS
 
- () => {} //simple syntax of an arrow function
+ //() => {} //simple syntax of an arrow function
 
  //storing arrow function in a variable
 
