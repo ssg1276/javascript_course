@@ -33,6 +33,8 @@ const coding = ["js", "ruby", "java", "python", "cpp"]
 //     console.log(item, index, arr);
 // } )
 
+
+//array of object
 const myCoding = [
     {
         languageName: "javascript",
