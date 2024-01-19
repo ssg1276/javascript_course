@@ -52,6 +52,6 @@ const myObject = {
 }
 
  for (const [key, value] of myObject) {
-    console.log(key, ':-', value);
+    console.log(key, ':-', value); //output--->myObject is not iterable
     
  } // for-of loop cant be used with objects 
