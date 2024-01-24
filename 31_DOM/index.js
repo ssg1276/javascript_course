@@ -34,3 +34,29 @@ const myul=document.querySelector("ul")
 const insidemyul=myul.querySelector("li")
 
 const insideli=insidemyul.querySelector("list-item")
+
+
+//selecting all elements of list at once 
+const tempMyList=document.querySelectorAll("li")
+
+console.log(tempMyList); //it will return a nodelist which is similiar to array but can't be treated like an array
+tempMyList.style.color="green" //it will through an error as this is not a format to deal with a nodelist
+
+tempMyList[0].style.color="green" //now first element of the list will be green and this is the format to deal with nodelists
+
+
+
+//how to use foreach for the nodelist
+tempMyList.forEach(function (list){
+    list.style.backgroundColor="red"
+})
+
+
+//HTML collection gets converted to an array
+const tempClassList=document.getElementsByClassName("list-items")
+
+console.log(tempClassList);//output will be a HTML collection similiar to an array but can't be operated therefore need to get it converted
+
+const arraytempClassList=Array.from(tempClassList)
+
+console.log(arraytempClassList); //output---> an array and any operation can be applied on this now
