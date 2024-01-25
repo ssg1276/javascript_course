@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    //creating a div element through JS
+    const div = document.createElement('div')
+    console.log(div); //output---><div></div>
+
+    /*adding properties in div element*/
+
+    //giving class name to the div element
+    div.className = "main"
+
+    //creating random id for the div element
+    div.id = Math.round(Math.random() * 10 + 1)
+
+    //setting the attribute inside the div element (custom changes)
+    div.setAttribute("title", "generated title")
+
+    //styling properties
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+
+    //adding and changing the text inside the div element
+     div.innerText = "Chai aur code" //overwriting 
+
+     //other way to insert text
+     //optimal approach
+    const addText = document.createTextNode("Chai aur code")
+    div.appendChild(addText)
+
+
+    //div is not displaying on the webpage therefore use this to attach the changes to the body so that ot can be displayed on the webpages 
+    document.body.appendChild(div)
+</script>
+</html>
