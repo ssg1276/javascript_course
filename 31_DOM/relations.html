@@ -1,0 +1,54 @@
+//parent and child relation of elements
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relations</title>
+</head>
+<body>
+    <div class="parent" style="background-color: #212121; color:white">
+        <div class="day">monday</div>
+        <div class="day">tuesday</div>
+        <div class="day">wed</div>
+        <div class="day">thursday</div>
+    </div>
+    <script>
+        const parent=document.querySelector('.parent')
+        //printing parent variable
+        console.log(parent); //return the whole element 
+
+        //if u want to return all the child element then
+        console.log(parent.children); //output--> HTML collection just as an array of all the child elements of the parent
+
+        //accessing the child element
+        console.log(parent.children[1].innerHTML); //return the child element's text and tags it contains
+
+
+        //applying the for loop on HTML collection and printing there text content
+        for (let i = 0; i < parent.children.length; i++) {
+            console.log(parent.children[i].innerHTML);//printing all text content inside child elements 
+        }
+        
+      //changing the styling of the child elements
+      parent.children[1].style.color="orange"
+
+      //other methods for calling or targeting  the child elements
+      console.log(parent.firstElementChild); //return whole first monday tag
+
+      console.log(parent.lastElementChild); //last element returning
+
+      //moving from child to parent
+      const dayOne=document.querySelector('.day')
+      console.log(dayOne);
+      console.log(dayOne.parentElement);//return the parent of the element
+      console.log(dayOne.nextElementSibling); //return the other child element having same parent
+
+
+      /*IMPORTANT*/
+      console.log("NODES:",parent.childNodes);//return a tree structure that have line as a node and line break also
+
+    </script>
+</body>
+</html>
