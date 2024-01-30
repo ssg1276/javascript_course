@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur javascrpit</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+<script>
+    //talking about setInterval
+    setInterval(function() {
+        console.log("hello Sir");
+        
+    }, 1000); //it will execute continuously after every 1sec
+
+
+    //setInterval also allow to pass parameter
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+      setInterval(sayDate, 1000, "hi")//now it will print the hi after every one second
+
+      //to clear the interval we need a reference 
+    const intervalId = setInterval(sayDate, 1000, "hi") //taking set interval as a reference
+
+    clearInterval(intervalId);//it gets direct cleared and which is not a good idea
+
+    //TASK-1 on start button -->printing must go on and on stop button printing need to be stoped 
+
+    const start=document.querySelector("#start")
+    const ch=function() {
+    start.addEventListener("click",function(){
+            console.log("success");
+        });
+    }
+    const startbtn=setInterval(ch,2000
+    );
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(startbtn);
+        console.log("STOPPED")
+      })
+
+        </script>
+</html>
