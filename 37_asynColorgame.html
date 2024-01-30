@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorChanging</title>
+</head>
+<body>
+    <h1>
+        Changing the background color by just one click!!!
+    </h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const randomColor=function(){
+        const hex='0123456789ABCDEF'
+        let color='#'
+        for(let i=0;i<6;i++){
+            color+=hex[Math.floor(Math.random()*16)]
+        }
+        return color;
+    }
+
+    let intervalId
+    const startChange=function(){
+        const change=function(){
+            document.body.style.background=randomColor();
+        }
+        if(intervalId===null){
+        intervalId= setInterval(change,1000);}
+    }
+
+    const stopChange=function(){
+        clearInterval(intervalId);
+        intervalId=null
+    }
+    document.querySelector("#start").addEventListener("click",startChange)
+    document.querySelector("#stop").addEventListener("click",stopChange)
+</script>
+</html>
