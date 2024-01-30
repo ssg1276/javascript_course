@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Project on async</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //on browser setTimeout is function under window object and its not a part off javascrpit only
+
+
+    //handler-->callback function only with no name
+    //setTimeout--->execute only once after a particular time that u have set
+    setTimeout( function() {
+        console.log("Your name")
+    }, 2000);//2sec time is set 
+
+    //other way
+    const myWay=function(){
+        console.log("Tell me about urself")
+    }
+    setTimeout(myWay,2000);//give myWay as a reference(means without ()-->brackets ) --->after 2sec the console will get printed
+
+
+    //changing h1 tag
+    document.querySelector("h1".innerHTML)="Best JS Series"
+
+    //changing h1 tag after 2 sec
+    //declare the change inside the function and store it in a variable
+    const change=function(){
+        document.querySelector("h1".innerHTML)="Best JS Series"
+    }
+    setTimeout(change,2000);//change will get execute after 2sec 
+
+
+    //stopping the setTimeout
+      //clearTimeout need reference
+
+      const changeMe=setTimeout(change,2000); //reference given which one to stop
+
+      clearTimeout(changeMe)//passing on the reference
+
+      //applying clearTimout on an event
+      document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+      })//by clicking on the button the change of the h1 will be stopped -->if clicked before the 2sec-->because after that setTimeout wil get executed
+      
+    </script>
+</html>
