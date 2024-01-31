@@ -1,0 +1,29 @@
+# javascript and classes
+--->these are primarily syntactic sugar over existing prototype-based inheritance mechanisms
+
+
+## OOP
+-->it is programming paradigm--> means code structure
+
+## Object means ---> collection of properties and methods
+for example ---> toLowerCase, toUpperCase etc.
+
+## why use OOP --->
+resolve spaghetti problem and we can also use many features like services
+
+
+## parts of OOP (components)
+--> Object literal {}
+
+# some keywords
+--> constructor function
+--> Prototypes
+--> Classes
+--> Instances (new, this)
+
+
+## 4 Pillars
+Abstraction
+Ecapsulaton
+Inheritance
+Polymorphism
