@@ -1,0 +1,68 @@
+<!-- old version XMLhttprequest -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: azure;">
+    <p style="color: azure;">0	UNSENT	Client has been created. open() not called yet.
+        1	OPENED	open() has been called.
+        2	HEADERS_RECEIVED	send() has been called, and headers and 
+            status are available.
+        3	LOADING	Downloading; responseText holds partial data.
+        4	DONE	The operation is complete.</p>
+      <div class="card">
+        <div >
+            <img class="img"src="" alt="" width="50px" height="50px"/>
+        </div>
+        <p class="followers"></p>
+        <button id="submit">Submit</button>
+      </div>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+
+    // CREATING NEW OBJECT and storing the request in it
+    const xhr = new XMLHttpRequest(); 
+
+    //open contains two parameters with it (method,string) -->open() is used to send requests
+    xhr.open('GET', requestUrl)
+
+
+    //after request the state get changes accordingly
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState); //used to know the states info.
+         
+        
+        if (xhr.readyState === 4) {
+            //converting the request data from URL into JSON data
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            //accessing the object having api data
+            console.log(data.followers);
+        }
+    }
+    xhr.send(); //it is used to call open() and open() is unable to call itself by itself
+
+
+
+    //ASSIGNMENT (FOR UPDATING PHOTO AND FOLLOWERS)
+    document.querySelector("#submit").addEventListener("click",function(){
+
+        //creating an object for storing the data from the request
+        const data = JSON.parse(xhr.responseText)
+            document.querySelector(".followers").innerHTML=`Followers: ${data.followers}`;
+
+           //for imagae
+            const image=document.querySelector(".img");
+            const link=data.avatar_url;
+            image.src=link;
+
+            
+    })
+</script>
+</html>
+
