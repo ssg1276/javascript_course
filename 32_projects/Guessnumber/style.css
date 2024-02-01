@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url('HD-wallpaper-ghost-call-of-duty-call-of-duty-mobile.jpg');
+    /* background-color: black; */
+    background-repeat: no-repeat;
+    color: azure;
+    background-size: cover;
+    background-position: center center;
+}
+
+.top {
+    color: white;
+    margin: 20px;
+}
+
+.guess {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    color: azure;
+}
