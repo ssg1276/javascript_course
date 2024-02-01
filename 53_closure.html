@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script>
+    //LEXICAL SCOPING--->sharing of variables is between parent and child(where only child can access the variables of parents) not with siblings
+
+
+    //creating function init()
+    function init() {
+        let name = "Mozilla"; 
+        function displayName() {
+            console.log(name);//name is from previous parent function scope 
+        }
+        displayName(); //calling
+    }
+    init();//calling main function
+
+
+
+    function outer(){
+        let username = "hitesh"
+        console.log("OUTER", secret);//parent can't access variables of child
+        //sharing memories with each other
+        function inner(){
+            let secret = "my123"
+            console.log("inner", username);//here username is accessable
+        }
+        function innerTwo(){
+            console.log("innerTwo", username);
+            console.log(secret);//cant be defined
+        }
+        inner()
+        innerTwo()
+
+    }
+    outer()
+    console.log("TOO OUTER", username); //here username is not accessable
+
+
+
+//CLOSURE-->when you return the whole function then its lexical scope also get return with that function
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;//function as reference not calling
+    }
+
+    const myFunc = makeFunc();//ending the main function scope
+    myFunc();//return not only name but also whole lexical scope of that displayName function into memory and by which we can access the name variable
+
+    </script>
+    <script>
+
+        //PARTICAL EXAMPLE OF CLOSURE
+        //changing the background color of body by clicking on button
+        document.getElementById("orange").onclick = function(){
+            document.body.style.backgroundColor = `orange`
+        }
+        document.getElementById("green").onclick = function(){
+            document.body.style.backgroundColor = `green`
+        }
+
+        //What if there are 500 buttons we can write 500 commands there
+        //other method to handle large scale modifications
+        function clickHandler(color){
+            //direct modification will throw an error
+             document.body.style.backgroundColor = `${color}`
+
+             //closure concept return whole function and it will help to return lexical scope
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</html>
